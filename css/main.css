@@ -1,0 +1,324 @@
+body {
+    font: normal 10px !important;
+    /* min-width:350px; */
+}
+
+.bodyMargin{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.width325 {
+  min-width: 350px;
+  margin:0 auto;
+}
+
+.width800 {
+  font: normal 10px;
+  max-width: 800px;
+  margin:0 auto;
+}
+
+.table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wrapdiv {
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+}
+
+[contentEditable=true]:empty:before{
+    content:attr(data-text)
+}
+
+.page-header {
+	margin-top: 0;
+}
+
+.greyText {
+  font-color: lightgrey;
+}
+
+h5 {
+	font-weight: bold;
+}
+
+#authLabel {
+    display:block;
+}
+
+#authForm {
+    display:inline-block;
+	width:200px;
+}
+
+#emailForm {
+    display:inline-block;
+	width:225px;
+}
+
+#pageForm {
+   display:inline-block;
+	width: 60px;
+}
+
+.datePick {
+  display:inline-block;
+	width: 90px;
+}
+
+#dateForm {
+   display:inline-block;
+	width: 100px;
+}
+
+#suffixDiv {
+	width:45px;
+	display:inline-block;
+}
+
+/* .tooltip {
+    position: fixed;
+} */
+
+.page-header {
+	margin-top: 0;
+}
+
+.fixedMenu {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #fff;
+  z-index: 10;
+  width: 100%;
+}
+
+.paddingMenu {
+  /*padding-top: 200px // height of your fixed row, you have to change this value on different screen sizes (using media queries)*/
+  margin-top: 60px;
+}
+
+.padRight-10 {
+    padding-right: 10px;
+}
+
+.affix {
+  position:fixed;
+}
+
+
+/* The max width is dependant on the container (more info below) */
+.popover{
+   min-width:300px;
+}
+
+#drDiv {
+	display:inline-block;
+}
+
+.navbar {
+    min-height: 60px;
+}
+
+.hide {
+    display: none;
+}
+
+.unhide {
+    display: block;
+}
+
+.alignright{
+    text-align: right;
+}
+
+.alignleft{
+    text-align: left;
+}
+
+.aligncenter{
+    text-align: center;
+}
+
+.vcenter {
+    display: flex;
+    align-items: center;
+}
+
+.highlight-cell{
+  background-color: lightyellow;
+}
+
+.custom_comment_label{
+  resize: none;
+  max-width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.custom_comment_text{
+  resize: vertical;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.row-odd{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #D3D3D3;
+}
+
+.row-even{
+  padding-top: 15px;
+  padding-bottom: 15px;
+ background-color: transparent;
+}
+
+.spacer-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.spacer-5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.btn-space {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+hr {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.glyphicon {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+#optionA {
+    display:inline-block;
+    margin-right: 2%;
+    vertical-align: top;
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px; /* Adjusts for spacing */
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  max-width: 400px;
+}
+
+.modal-dialog-wide {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  width: 700px;
+}
+
+.scroll-column-body {
+    height: 80px;
+    overflow-y: scroll;
+}
+
+#Google, #Facebook {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#framedQuote, #framedQuote2, #framedQuote3, #framedQuote4 {
+    background-color: #e6e6e6;
+}
+
+#framedQuote5, #framedQuote6, #framedQuote7, #framedQuote8 {
+	background-color: white;
+   padding: 5px;
+}
+
+#easyBibImg {
+    display: inline;
+    margin-left: 25px;
+}
+
+.tbrow {
+    padding: 5px;
+}
+
+.tbrow-height {
+    height: 70px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.tbbgdarker {
+    background-color: #e3e3e3;
+}
+
+.greenbackground {
+    background-color: green;
+}
+
+.tbbglighter {
+    background-color: #f5f3f3;
+}
+
+.tbleft {
+    border-radius: 15px 0 0 15px;
+}
+
+.tbright {
+    border-radius: 0 15px 15px 0;
+}
+
+/* @media print {
+   div.no-print {
+     display:none;
+   }
+} */
+
+/* @media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+} */

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <!-- Website Title & Description for Search Engine purposes -->
+    <title>Annotate PRO</title>
+    <meta name="Annotate PRO: create and share libraries of expert feedback you can use to quickly respond to student work in Google Docs, Canvas, Blackboard or almost any text-entry area on a web page.">
+
+    <!-- Mobile viewport optimized -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/bootstrap-toggle.min.css" >
+
+  <!-- jQuery CSS CDN -->
+  <link href="css/jquery-ui.min.css" rel="stylesheet" >
+
+  <!--Original javascript / CDN -->
+  <script type="text/javascript" src="dscripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="dscripts/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="dscripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="dscripts/bootstrap-toggle.min.js"></script>
+
+  <!-- FIREBASE  - I think we only need JS, not app.js and auth.js -->
+  <script src="dscripts/firebase.js"></script>
+  <!-- FIREBASE -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+
+  <!-- Custom JS -->
+  	<script type="text/javascript" src="scripts/aSearch.js?v=87ax11"></script>
+    <script type="text/javascript" src="scripts/web_background.js?v=871ax1"></script>
+
+<!-- Multiselect CSS and JS: -->
+  <script type="text/javascript" src="dscripts/bootstrap-multiselect.min.js"></script><link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+
+<!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet">
+
+</head>
+  <body class='width325'>
+  <div class="container">
+    <div class="row fixedMenu">
+      <div class="col-xs-12 aligncenter">
+          <div class="row aligncenter spacer-10">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Main Menu">
+              <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Insert Comments via search or dropdown; translate Comments with Google Translate." href="insertComment.html" tabindex="-1">Insert</a>
+              <div class="masterEditPermission btn-group btn-group-sm">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Edit&nbsp;<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a class="activeComment" data-toggle="tooltip" data-placement="bottom" title="Edit your current Active Comments.">Edit Active Comments</a></li>
+                  <li class="divider"></li>
+                  <li><a class="manageLibrary" data-toggle="tooltip" data-placement="bottom" title="Activate available Libraries, search for libraries, including ones created by colleagues or ones you can license from 11trees.">Edit All Libraries</a></li>
+                  <li><a class="activateLibraryModal" data-toggle="tooltip" data-placement="bottom" title="See all available Libraries - ones you created, ones shared with you, and ones available for licensing.">Activate Libraries</a></li>
+                  <li><a class="reviewFeed" data-toggle="tooltip" data-placement="bottom" title="Review a history of feedback created with Annotate PRO and quickly add previous Free Form Comments to an existing Library.">Review your Feed</a></li>
+                  <li class="divider"></li>
+                  <li class="addNewPermission"><a data-toggle="tooltip" data-placement="bottom" title="Create a new Comment for any of your Available Libraries" class="newCommentModal">New Comment</a></li>
+                  <li class="addNewPermission"><a data-toggle="tooltip" data-placement="bottom" title="Create a new Group for any of your existing Libraries, then fill it with Comments." class="newGroupModal">New Group</a></li>
+                  <li class="addNewPermission"><a data-toggle="tooltip" data-placement="bottom" title="Create a new Library, then add new Groups and Comments." class="newLibraryModal">New Library</a></li>
+                </ul>
+            </div>
+              <a id="supportBtn" class="btn btn-default hide" data-toggle="tooltip" data-placement="bottom" title="Click to visit the 11trees support site for FAQs, helpful hints, and Annotate PRO support." href="https://www.11trees.com/live/support/annotate-pro-word-support" target="_blank" tabindex="-1">Support</a>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" tabindex="-1"><span class="glyphicon glyphicon-cog" style="font-size: 15px"></span> <span class="caret"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li>
+                    <a class="accountPage" data-toggle="tooltip" data-placement="bottom" title="Review your Annotate PRO licenses & license new content/solutions.">Account & Store</a>
+                  </li>
+                  <li>
+                    <a class="reviewFeed" data-toggle="tooltip" data-placement="bottom" title="Review your Feed of Comments and easily add Free Form Comments to an existing Library.">Comment Feed</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a id='logOutBTN' data-toggle="tooltip" data-placement="bottom" title="Log out of Annotate PRO.">Log Out</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>    <!-- End of ROW for top menu -->
+
+  <div class="row paddingMenu">
+    <div class='col-xs-12 alignleft'>
+      Select an <i>active</i> Library or Libraries<a data-toggle="tooltip" data-placement="bottom" title="Click EDIT then ACTIVATE LIBRARIES to add and remove Libraries." tabindex="-1" class="pull-right"><span class="glyphicon glyphicon-info-sign pull-right" style="font-size: 15px"></span></a>:
+    </div>
+    <div class='col-xs-12 aligncenter'>
+      <div class='form-group'><select id='ddLibName' multiple='multiple'></select>
+        <div id='ddLibrarySelect'></div>
+      </div>
+    </div>
+    <div class='col-xs-12 alignleft userPrefs'>
+      <div class="col-xs-5 aligncenter" data-toggle="tooltip" data-placement="bottom" title="Maintain a history of feedback to each student (Google Docs and Canvas SpeedGrader).">
+        <input type="checkbox" id="loggingModeSearch" data-toggle="toggle" data-size="small"
+        data-off="History OFF" data-on="History ON"
+        data-offstyle="danger" data-onstyle="success">
+      </div>
+      <div class='col-xs-6 alignleft'>
+        <div class='form-group'>
+          <select id='toolbarDDSearch' class="form-control form-control-sm" data-toggle="tooltip" data-placement="bottom" title="Choose whether to hide the Annotate toolbar or show it at the top of your screen (horizontally), side (vertically) or both.">
+            <option value="0">Toolbar: Off</option>
+            <option value="1">Toolbar: Top</option>
+            <option value="2">Toolbar: Right</option>
+            <option value="3">Toolbar: Both</option>
+          </select>
+        </div>
+      </div>
+      <div class='col-xs-1'>
+      </div>
+    </div>
+		<div class="col-xs-12">
+      <div id="searchDiv" class="show">
+        <div class="panel-group">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#search" tabindex="-1">Search Your Library:</a>
+              </h4>
+            </div>
+            <div id="search" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <div class="ui-widget">
+                  <div class="form-group aligncenter">
+                    <input id="searchLibrary" class="form-control" tabindex="1" autofocus>
+                  </div>
+                  <div class="small">Type a few letters of Comment <b>text</b>, then select from the list to insert at your cursor location.</div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+	<!-- <div class="col-xs-12">
+		<div id="freeFormDiv" class="show">
+			<div class="panel-group">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#freeform" tabindex="-1">Free Form Comment:</a>
+						</h4>
+					</div>
+					<div id="freeform" class="panel-collapse collapse in">
+						<div class="panel-body">
+              <div class="col-xs-12">
+							<textarea class="form-control" rows="3" id="freeForm" tabindex="2"></textarea>
+              </div>
+              <div class="col-xs-4 aligncenter spacer-10">
+                <button type="button" id="insertBtn" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Add your Free Form text to the document as a Comment or inline text AND save it to your Feed..." tabindex="3">Insert</button>
+              </div>
+              <div class="col-xs-8 aligncenter spacer-10">
+                <button type="button" data-toggle="tooltip" data-placement="bottom" title="Review a history of feedback created with Annotate PRO and quickly add previous Free Form Comments to an existing Library." id="newCommentBtn" class="btn btn-success reviewFeed" tabindex="-1">Review your Feed</button>
+              </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div> -->
+
+  <div class="col-xs-12">
+		<div id="translateDiv" class="show">
+			<div class="panel-group">
+				<div class="panel panel-success">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#translate" tabindex="-1">Free Form & Translation:</a>
+						</h4>
+					</div>
+					<div id="translate" class="panel-collapse collapse">
+						<div class="panel-body">
+              <div class="col-xs-12">
+              <textarea class="form-control" rows="3" id="freeForm" tabindex="2"></textarea>
+              </div>
+              <div class="col-xs-12 aligncenter spacer-10">
+                <button type="button" id="insertBtn" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Add your Free Form text to the document as a Comment or inline text AND save it to your Feed..." tabindex="3">Insert</button>
+              </div>
+              <div class="col-xs-6">
+                  <div class="form-group ui-widget" id="langForm">
+                  <input type="text" class="form-control authForm" id="fromLang" placeholder="English">
+                </div>
+              </div>
+              <div class="col-xs-6">
+                <div class="form-group ui-widget id="langForm"">
+                  <input type="text" class="form-control" id="toLang" placeholder="English">
+                </div>
+              </div>
+              <div class="col-xs-12 aligncenter">
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-default active">
+                    <input type="radio" class="dualresp" name="options" id="singleResponse" autocomplete="off" tabindex="-1" checked> Single
+                  </label>
+                  <label class="btn btn-default">
+                    <input type="radio" class="dualresp" name="options" id="dualResponse" autocomplete="off" tabindex="-1"> Dual
+                  </label>
+                </div>
+              </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+  <div class="col-xs-12">
+	    <div id="faveDiv" class="show">
+        <div class="panel-group">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" href="#favorites" tabindex="-1">Favorites:</a>
+              </h4>
+            </div>
+            <div id="favorites" class="panel-collapse">
+              <div class="panel-body">
+                <div class="col-xs-12 aligncenter" id="favoriteBtns"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+		</div>
+
+  </div>  <!-- End Row -->
+</div>    <!-- eND OF BIG CONTAINER -->
+
+<!-- MODALS -->
+
+<div class="modal fade" id="flexModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <button class="close" data-dismiss="modal">&times;</button> -->
+                <h4 class="modal-title"><span id="flexModalHeader"></span></h4>
+            </div><!-- end modal-header -->
+            <div class="modal-body">
+                <div id="flexModalMsg"></div>
+            </div> <!-- end modal-body -->
+
+            <div class="modal-footer">
+                <button class="btn btn-default refresh" data-dismiss="modal" type="button">Close</button>
+            </div><!-- end modal-footer -->
+        </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end myModal -->
+
+
+  </body>
+</html>

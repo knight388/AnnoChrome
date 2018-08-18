@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <!-- Website Title & Description for Search Engine purposes -->
+    <title>Annotate PRO</title>
+    <meta name="Annotate PRO: create and share libraries of expert feedback you can use to quickly respond to student work in Google Docs, Canvas, Blackboard or almost any text-entry area on a web page.">
+
+    <!-- Mobile viewport optimized -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/bootstrap-toggle.min.css" >
+
+  <!-- jQuery CSS CDN -->
+  <link href="css/jquery-ui.min.css" rel="stylesheet" >
+
+  <!--Original javascript / CDN -->
+  <script type="text/javascript" src="dscripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="dscripts/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="dscripts/bootstrap.min.js"></script>
+
+  <!-- React -->
+  <script type="text/jsx" src="dscripts/react.min.js"></script>
+  <script type="text/jsx" src="dscripts/react-dom.min.js"></script>
+
+  <!-- FIREBASE  - I think we only need JS, not app.js and auth.js -->
+  <script src="dscripts/firebase.js"></script>
+  <!-- FIREBASE -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+  <!-- Multiselect CSS and JS: -->
+<script type="text/javascript" src="dscripts/bootstrap-multiselect.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+
+<!-- Custom JS -->
+<script type="text/javascript" src="scripts/aSearch.js?v=444"></script>
+<script type="text/javascript" src="scripts/web_background.js?v=114"></script>
+<!-- <script type="text/javascript" src="scripts/civIFF.js?v=871ax1"></script> -->
+
+<!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet">
+<link href="css/sb.css?v=44a" rel="stylesheet">
+
+</head>
+  <body class="tbbglighter">
+    <div data-spy="affix" class='col-xs-12 aligncenter greenbackground sbMenu'>
+      <a class='closeSidebarBtn pull-right spacer-10'><span id='whiteCloseXspan' class="glyphicon glyphicon-remove" aria-hidden="true" style="color: white"></span></a>
+      <div class='spacer-10'></div>
+      <div class="ui-widget">
+        <div class="form-group">
+          <input id="searchLibrarySB" class="form-control" tabindex="1" placeholder="Search...">
+        </div>
+      </div>
+    </div>
+    <div class='col-xs-12 spacer-10 ddPadding tbbglighter aligncenter'>
+      <div id='librarySbDd' class="aligncenter">
+      </div>
+    </div>
+    <div class='col-xs-12 favePadding'></div>
+
+    <div id='recipHistoryDivSB' class='col-xs-12 tbbgdarker historyPadding pointer'>
+      <p class='aligncenter'>
+        <b><span id='recipNameSB'></span></b>
+      </p>
+      <div class='col-xs-6 aligncenter'>
+        <img id="avatarImgSB" src="" style="width:60px;"/>
+      </div>
+      <div class='col-xs-6 aligncenter'>
+        <button type="button" id='viewHistoryBtn' class="btn btn-default aligncenter" data-toggle="tooltip" data-placement="bottom" title="Click to review feedback detail."><span id='commentCount'></span></button>
+      </div>
+      <div class='col-xs-12 aligncenter spacer-5'></div>
+    </div>
+    <!-- <div class="col-xs-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Your selected comment</h3>
+        </div>
+        <div class="panel-body">
+          <div id="selectedCommentDiv" contenteditable="true">
+          </div>
+          <textarea id="selectedCommentText" rows="4" cols="50">
+              At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.
+          </textarea>
+        </div>
+      </div>
+    </div> -->
+    <div id='app'></div>
+    <div id='faveAreaSB' class='col-xs-12 aligncenter'>
+        <div class='spacer-5'></div>
+        <div id="favoriteBtnsSB"></div>
+    </div>
+  <!-- </div> -->
+  </body>
+</html>
+
+<!-- MODALS -->
+<div data-reactroot="" role="dialog"><div role="dialog" tabindex="-1" class="in modal" style="display: block;"><div class="flexible-popout modal-dialog" style="right: 300px;"><div class="modal-content" role="document"><div class="modal-header"><div class="popout-modal-title modal-title"><h4><span>Email Student</span><div class="popout-controls"><button type="button" class="btn btn-default">__</button><button type="button" class="btn btn-default"><i class="fa fa-expand"></i></button><button type="button" class="btn btn-default">✕</button></div></h4></div></div><div class="modal-body"><div><form class="email-form form-horizontal" action="" method="post" enctype="multipart/form-data"><div class="scrollable"><div></div><div class="form-group bcc-list"><div></div><label class="control-label col-sm-2"><span>to</span></label><div class="col-sm-10"><div class="to-field"><span>Au Demo &lt;student.ashford@student.ashford.edu&gt;</span></div></div></div><div class="form-group"><label class="col-sm-2 control-label">Subject:</label><div class="col-sm-10"><input type="text" name="subject" placeholder="Enter Subject..." value="" class="form-control"></div></div><div class="form-group email-message"><h5 class="form-group-title">Email Message</h5><div class="alert-info">The application will automatically replace [Student Firstname] with the name of the student being contacted.</div><label class="sr-only" for="email-message-input">message</label><div class="form-group"><div class="civ-component-rich-text-editor-toolbar"><!-- react-empty: 36 --><!-- react-empty: 37 --><div class="toolbar-button-group"><div class="toolbar-button"><i class="fa fa-bold"></i></div><div class="toolbar-button"><i class="fa fa-italic"></i></div><div class="toolbar-button"><i class="fa fa-underline"></i></div></div><div class="toolbar-button-group"><div class="toolbar-button"><i class="fa fa-list-ul"></i></div><div class="toolbar-button"><i class="fa fa-list-ol"></i></div></div><div class="toolbar-button-group"><div class="toolbar-button"><i class="fa fa-image"></i></div></div><div class="toolbar-button-group"><div class="toolbar-button"><i class="fa fa-link"></i></div><div class="toolbar-button"><i class="fa fa-unlink"></i></div></div><div class="toolbar-button-group"><div class="btn btn-link">Insert Student First Name</div></div></div></div><div id="email-message-input" class="civ-component-rich-text-editor message-input"><div class="DraftEditor-root"><div class="DraftEditor-editorContainer"><div aria-describedby="placeholder-c7vpe" class="notranslate public-DraftEditor-content" contenteditable="true" role="textbox" spellcheck="true" style="outline: none; user-select: text; white-space: pre-wrap; word-wrap: break-word;"><div data-contents="true"><div class="" data-block="true" data-editor="c7vpe" data-offset-key="4a1ou-0-0"><div data-offset-key="4a1ou-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="4a1ou-0-0"><span data-text="true">Dear [Student Firstname],</span></span></div></div><div class="" data-block="true" data-editor="c7vpe" data-offset-key="ctld8-0-0"><div data-offset-key="ctld8-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="ctld8-0-0"><br data-text="true"></span></div></div><div class="" data-block="true" data-editor="c7vpe" data-offset-key="4ldbo-0-0"><div data-offset-key="4ldbo-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="4ldbo-0-0"><span data-text="true">New line</span></span></div></div><div class="" data-block="true" data-editor="c7vpe" data-offset-key="8urk3-0-0"><div data-offset-key="8urk3-0-0" class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"><span data-offset-key="8urk3-0-0"><span data-text="true">Another line...</span></span></div></div></div></div></div></div></div></div><div class="form-group"><label class="control-label col-sm-2"><span>attachments</span></label><div class="col-sm-3"><input type="file" multiple="" name="attachment_files" id="attachment_files" class="hidden-button"><label for="attachment_files" class="file-chooser btn btn-default">Choose Files</label></div><div class="attachment-list col-sm-7"><span>No files chosen</span></div></div></div><div class="form-footer row"><div class="col-sm-6"><div class="checkbox"><label title="Copy me"><input type="checkbox" value="on"><!-- react-text: 82 -->Copy me<!-- /react-text --></label></div><div class="checkbox"><label title="CC student's assigned advisor"><input type="checkbox" value="on"><!-- react-text: 89 -->CC student's assigned advisor<!-- /react-text --></label></div></div><div class="form-actions col-sm-5 col-sm-offset-1"><button type="button" class="btn btn-link">cancel</button><button type="submit" class="btn btn-default">submit</button></div></div></form></div></div></div></div></div></div> 
+  </body>
+</html>

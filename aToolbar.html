@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <!-- Website Title & Description for Search Engine purposes -->
+    <title>Annotate PRO</title>
+    <meta name="Annotate PRO: Edit a library of comments and quickly search and add them to Google Docs comments, Dropbox doc comments, or almost any text-entry area on a web page.">
+
+    <!-- Mobile viewport optimized -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/bootstrap-toggle.min.css" >
+
+  <!-- jQuery CSS CDN -->
+  <link href="css/jquery-ui.min.css" rel="stylesheet" >
+
+  <!--Original javascript / CDN -->
+  <script type="text/javascript" src="dscripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="dscripts/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="dscripts/bootstrap.min.js"></script>
+
+  <!-- FIREBASE  - I think we only need JS, not app.js and auth.js -->
+  <script src="dscripts/firebase.js"></script>
+  <!-- FIREBASE -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+  <!-- Custom JS -->
+  <script type="text/javascript" src="scripts/aSearch.js?v=2"></script>
+  <script type="text/javascript" src="scripts/web_background.js?v=2"></script>
+
+  <!-- Multiselect CSS and JS: -->
+<script type="text/javascript" src="dscripts/bootstrap-multiselect.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap-multiselect.css" type="text/css"/>
+
+<!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet">
+<link href="css/topb.css" rel="stylesheet">
+
+</head>
+  <body style="overflow-y: hidden;">
+  <div class="container-fluid">
+
+  <div class="row tbrow">
+    <!-- <div class="col-md-1 aligncenter tbrow-height tbleft tbbgdarker">
+      <div class='spacer-5'>
+        <img src="Annotate48.png" alt="Annotate Logo">
+      </div>
+    </div> -->
+
+    <div class="col-md-2 tbrow-height tbleft greenbackground">
+      <div class='spacer-5'></div>
+      <div class="ui-widget">
+        <div class="form-group">
+          <input id="searchLibraryTB" class="form-control searchFocus" placeholder="Type to search..." tabindex="1">
+        </div>
+      </div>
+	</div>
+  <div id='recipAvatarTB' hide class='col-xs-1 tbbgdarker aligncenter'>
+      <b><span id="recipNameTB" class='aligncenter'></span></b>
+      <img id="avatarImgTB" src="" style="width:60px;" class="spacer-5"/>
+  </div>
+	<div id='recipHistoryDivTB' hide class="col-md-4 scroll-column-body tbrow-height tbbglighter">
+    <table class="table table-striped" id="feedbackHistoryTable">
+      <thead>
+        <tr>
+          <th class="col-xs-2 aligncenter small">Date</th>
+          <th class="col-xs-10 alignleft small">Comment</th>
+        </tr>
+      </thead>
+      <tbody id="feedbackHistoryTableBody"></tbody>
+    </table>
+  </div>
+
+	<div id='faveAreaTB' class="col-md-5 scroll-column-body tbrow-height tbright tbbgdarker">
+    <a class='closeSidebarBtn pull-right'><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color: white"></span></a>
+    <div class="aligncenter" id="favoriteBtnsTB"></div>
+  </div>
+
+  </div>  <!-- End Row -->
+</div>    <!-- eND OF BIG CONTAINER -->
+
+
+<!-- MODALS -->
+
+<div class="modal fade" id="flexModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <button class="close" data-dismiss="modal">&times;</button> -->
+                <h4 class="modal-title"><span id="flexModalHeader"></span></h4>
+            </div><!-- end modal-header -->
+            <div class="modal-body">
+                <div id="flexModalMsg"></div>
+            </div> <!-- end modal-body -->
+
+            <div class="modal-footer">
+                <button class="btn btn-default refresh" data-dismiss="modal" type="button">Close</button>
+            </div><!-- end modal-footer -->
+        </div><!-- end modal-content -->
+    </div><!-- end modal-dialog -->
+</div><!-- end myModal -->
+
+  </body>
+</html>

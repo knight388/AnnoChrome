@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <!-- Website Title & Description for Search Engine purposes -->
+    <title>Home | Annotate PRO for Google Chrome</title>
+    <meta name="Annotate PRO: create and share libraries of expert feedback you can use to quickly respond to student work in Google Docs, Canvas, Blackboard or almost any text-entry area on a web page.">
+
+    <!-- Mobile viewport optimized -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/bootstrap-toggle.min.css" >
+
+  <!-- jQuery CSS CDN -->
+  <link href="css/jquery-ui.min.css" rel="stylesheet" >
+
+  <!-- Custom CSS -->
+  <link href="css/main.css" rel="stylesheet">
+
+  <!--Original javascript / CDN -->
+  <script type="text/javascript" src="dscripts/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="dscripts/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="dscripts/bootstrap.min.js"></script>
+
+  <!-- FIREBASE  - I think we only need JS, not app.js and auth.js -->
+  <script src="dscripts/firebase.js"></script>
+  <!-- FIREBASE -->
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+
+  <!-- Custom JS -->
+  	<script type="text/javascript" src="scripts/aHome.js?v=2"></script>
+    <script type="text/javascript" src="scripts/web_background.js?v=2"></script>
+
+</head>
+  <body style="height: 590px;">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-xs-12 spacer-10" style="min-width:450px;">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><h4><div id="panelHeading">Welcome to Annotate PRO!</div></h4></div>
+          <div class="panel-body">
+            <div class="show" id="firstWelcomeDiv">
+              <p>Curate a library of comments and quickly search and then add personalized, detailed feedback to Google Docs, Google Classroom, or documents viewed through Dropbox, Blackboard, Canvas or almost any text-entry area on a web page. You'll soon be creating fantastic feedback, faster.</p><p></p>
+              <p>To get started, login or create an account with your <b>school</b> or <b>personal</b> email or Google/Facebook sign in.</p>
+            </div>    <!-- End overview text -->
+            <!-- <div class='spacer-10'></div> -->
+            <div class="row">
+            <div id="initialOptions" class="hide">
+                <div class="row col-sm-6 spacer-10 aligncenter">
+                  <button class="btn btn-success btn-lg" id="btnSignUp">Sign Up</button>
+                </div>
+                <div class="row col-sm-6 spacer-10 aligncenter">
+                  <button class="btn btn-default btn-lg btnLogIn">Log In</button>
+                </div>
+            </div>  <!-- End initialOptions div -->
+            <div class='spacer-10'></div>
+          </div>
+              <div id="homeStatus" class="hide"></div>
+              <div id="11treesPermission" class="show">
+                <div class="panel panel-default">
+                  <div class="panel-body" style="background-color: lightgreen">
+                    <p>By creating an account with 11trees, the developers of Annotate PRO, you consent to share your email address and name with us. By signing up up you accept our <a href="https://www.11trees.com/live/privacy/" tabindex="-1" target="_blank">privacy</a> and <a href="https://www.11trees.com/live/terms-conditions/" tabindex="-1" target="_blank">terms of service</a>.</p>
+                  </div>
+                </div>
+              </div>
+          <div id="LogIn" class="hide">
+              <div id="socialLogIn">
+                <div class='col-xs-12'>If you are joining colleagues at a particular institution or organization, make sure you use an email originating with that organization. Example: yourname@school.edu. Only use Google signin if your institution uses Google to manage accounts & email.</div>
+                <div class="col-xs-6 col-sm-6 spacer-10 aligncenter">
+                  <button class="btn btn-danger btnGoogle ">Sign in with Google</button>
+                </div>
+                <div class="col-xs-6 col-sm-6 spacer-10 aligncenter">
+                  <button class="btn btn-primary btnFacebook">Sign in with Facebook</button>
+                </div>
+                <div class="col-xs-12 aligncenter">
+                  <h3>--- OR ---</h3>
+                </div>
+              </div> <!-- End of social login div -->
+                <div class="col-xs-12 alignleft">
+                  <b>Email</b>
+                </div>
+                <div class="col-xs-12 alignleft">
+                  <div class="form-group" id="emailForm">
+                    <input type="email" id="txtEmailLogIn" class="form-control emailFormat" placeholder="wili.e.coyote@looneytunes.com"/>
+                  </div>
+                </div>
+                <div class="col-xs-12 alignleft">
+                  <b>Password</b>
+                </div>
+                <div class="col-xs-12 alignleft">
+                  <div class="form-group" id="emailForm">
+                    <input type="password" id="txtPasswordLogIn" class="form-control pwFormat" placeholder="fri3drdrunr"/>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 spacer-10 aligncenter">
+                  <button class="btn btn-success btn-lg" id="btnManualSignIn">Sign In</button>
+                </div>
+                <div class="col-xs-6 col-sm-4 spacer-10 aligncenter">
+                  <button class="btn btn-link" id="btnForgotPass">Forgot Password</button>
+                </div>
+                <div class="col-xs-6 col-sm-4 spacer-10 aligncenter">
+                  <button class="btn btn-link" id="btnGotoSignUp">Sign Up</button>
+                </div>
+            </div>  <!-- End LogIn div -->
+
+          <div id="SignUp" class="hide">
+              <div id="socialSignUp">
+              <div class="row col-xs-12 col-sm-6 spacer-10 aligncenter">
+                <button class="btn btn-danger btn-lg btnGoogle">Sign in with Google</button>
+              </div>
+              <div class="row col-xs-12 col-sm-6 spacer-10 aligncenter">
+                <button class="btn btn-primary btn-lg btnFacebook">Sign in with Facebook</button>
+              </div>
+              <div class="row col-xs-12 spacer-10 aligncenter">
+                <h3>--- OR ---</h3>
+              </div>
+            </div>  <!-- End social sign UP -->
+              <div class="row col-xs-12 spacer-10 aligncenter">
+                <button class="btn btn-default btn-lg" id="btnManualSignUp1">Create an account via email</button>
+              </div>
+              <div class="row col-xs-12 spacer-10 aligncenter">
+                <button class="btn btn-link btnLogIn">Sign in</button>
+              </div>
+            <b>Note:</b> To connect to your institution's site license and potential custom content, make sure to create an account using your organization email.<p></p>Example: yourname@youruniversity.edu.<br />Only use Google signup if your institution uses Google to manage accounts & email.
+          </div>  <!-- End Signup Div -->
+
+          <div id="ManualSignUp" class="hide">
+          <div class="col-xs-12 alignleft">
+            <b>Name</b>
+          </div>
+          <div class="col-xs-12 alignleft">
+            <div class="form-group" id="emailForm">
+              <input type="text" id="txtDisplayNameSignUp" class="form-control" placeholder="Willi E. Coyote"/>
+            </div>
+          </div>
+          <div class="col-xs-12 alignleft">
+            <b>Email</b>
+          </div>
+          <div class="col-xs-12 alignleft">
+            <div class="form-group" id="emailForm">
+              <input type="email" id="txtEmailSignUp" class="form-control emailFormat" placeholder="Willi E. Coyote"/>
+            </div>
+          </div>
+          <div class="col-xs-12 alignleft">
+            <b>Password</b>
+          </div>
+          <div class="col-xs-12 alignleft">
+            <div class="form-group" id="emailForm">
+              <input type="password" id="txtPassword1SignUp" class="form-control pwFormat" placeholder="Willi E. Coyote"/>
+            </div>
+          </div>
+            <div class="col-xs-12 alignleft">
+              <b>Reenter Password</b>
+            </div>
+            <div class="col-xs-12 alignleft">
+              <div class="form-group" id="emailForm">
+                <input type="password" id="txtPassword2SignUp" class="form-control pwFormat" placeholder="Willi E. Coyote"/>
+              </div>
+            </div>
+          <div class="col-xs-12 spacer-10 aligncenter">
+            <button class="btn btn-success" id="btnManualSignUp2">Create an account by email</button>
+          </div>
+        </div>  <!-- End Manual Signup Div -->
+
+        </div>    <!-- End Big Panel Body -->
+      </div> <!-- End Big Panel -->
+    </div>
+
+  </div>  <!-- End Row -->
+
+</div>    <!-- eND OF BIG CONTAINER -->
+    <!-- MODALS -->
+    <div class="modal fade" id="loadingModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Loading your Annotate PRO content...</h4>
+          </div><!-- end modal-header -->
+          <div class="modal-body">
+            <div class='aligncenter spacer-10'>
+              <br />
+              <img src="../images/ajax-loader.gif" alt="Annotate loading image">
+              <br />
+            </div>
+          </div> <!-- end modal-body -->
+        </div><!-- end modal-content -->
+      </div><!-- end modal-dialog -->
+    </div><!-- end myModal -->
+
+
+    <div class="modal fade" id="flexModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><span id="flexModalHeader"></span></h4>
+          </div><!-- end modal-header -->
+          <div class="modal-body">
+            <div id="flexModalMsg"></div>
+          </div> <!-- end modal-body -->
+
+          <div class="modal-footer">
+            <button class="btn btn-default refresh" data-dismiss="modal" type="button">Close</button>
+          </div><!-- end modal-footer -->
+        </div><!-- end modal-content -->
+      </div><!-- end modal-dialog -->
+    </div><!-- end myModal -->
+
+
+  </body>
+</html>
